@@ -26,6 +26,7 @@ using register_service::RegisterService;
 using register_service::Response;
 using register_service::WriteItemRequest;
 
+// RegisterServiceClient class: DON'T MODIFY
 class RegisterServiceClient {
    public:
     RegisterServiceClient(std::shared_ptr<Channel> channel, std::ostream& out);
