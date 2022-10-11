@@ -36,6 +36,11 @@ Result* RegisterServiceClient::GetAllRegisterArrays() {
         return new Result(status, response);
     }
 
+    if (response.response_case() == Response::ResponseCase::RESPONSE_NOT_SET) {
+        out_ << "[GET] Empty response" << std::endl;
+        return new Result(status, response);
+    }
+
     if (response.response_case() != Response::ResponseCase::kArrays) {
         out_ << "[Error] [GET] Invalid response" << std::endl;
         return new Result(status, response);
