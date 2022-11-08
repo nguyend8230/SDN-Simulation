@@ -8,9 +8,8 @@ service RegisterService {
     rpc GetRegisterArray(GetRequest) returns (Response) {}
     rpc CreateRegisterArray(CreateRequest) returns (Response) {}
     rpc DeleteRegisterArray(DeleteRequest) returns (Response) {}
-    // Define the following two RPCs
-    // name: ReadValue, input: ReadItemRequest, output: Response
-    // name: WriteValue, input: WriteItemRequest, output: Response
+    rpc ReadValue(ReadItemRequest) returns (Response) {}
+    rpc WriteValue(WriteItemRequest) returns (Response) {}
 }
 
 message GetRequest {
@@ -23,14 +22,12 @@ message DeleteRequest {
 
 message CreateRequest {
     string name = 1;
-    // Task: Define the following field
-    // field: capacity, type: uint32
+    uint32 capacity = 2;
 }
 
 message ReadItemRequest {
-    // Task: Define the following fields
-    // field: name, type: string
-    // field: index, type: uint32
+    string name = 1;
+    uint32 index = 2;
 }
 
 message WriteItemRequest {
@@ -40,11 +37,10 @@ message WriteItemRequest {
 }
 
 message RegisterArray {
-    // Task: Define the following fields
-    // field: name, type: string
-    // field: capacity, type: uint32
-    // field: size, type: uint32
-    // field: items, type: list of uint32
+    string name = 1;
+    uint32 capacity = 2;
+    uint32 size = 3;
+    repeated uint32 items = 4;
 }
 
 message MultiRegisterArray {
